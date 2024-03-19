@@ -1,0 +1,10 @@
+spring:
+    application:
+        name: parking-garage
+    datasource:
+        url: jdbc:postgresql://localhost:5432/parking-garage
+        username: postgres
+        password: 1234
+    jpa:
+        hibernate:
+            ddl-auto: none
