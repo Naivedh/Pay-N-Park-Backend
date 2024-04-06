@@ -1,4 +1,4 @@
-package com.naivedh.paynpark.model;
+package com.naivedh.paynpark.DTO.Request;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

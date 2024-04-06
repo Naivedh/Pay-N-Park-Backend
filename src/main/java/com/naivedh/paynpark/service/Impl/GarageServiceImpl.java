@@ -1,21 +1,19 @@
-package com.naivedh.paynpark.service;
+package com.naivedh.paynpark.service.Impl;
 
 import com.naivedh.paynpark.model.Garage;
 import com.naivedh.paynpark.repository.GarageRepository;
+import com.naivedh.paynpark.service.GarageService;
 import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Service
-public class GarageService {
+@RequiredArgsConstructor
+public class GarageServiceImpl implements GarageService {
   private final GarageRepository garageRepository;
 
-  @Autowired
-  public GarageService(GarageRepository garageRepository) {
-    this.garageRepository = garageRepository;
-  }
   public List<Garage> findGarage(){
     return (List<Garage>) garageRepository.findAll();
   }

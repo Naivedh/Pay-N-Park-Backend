@@ -9,6 +9,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import java.util.UUID;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
@@ -19,10 +20,10 @@ import lombok.NonNull;
 @NoArgsConstructor
 public class Spot {
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
-  private Integer spotId;
+  @GeneratedValue(strategy = GenerationType.UUID)
+  private UUID spotId;
   @NonNull
-  private Integer garageId;
+  private UUID garageId;
   @Enumerated(EnumType.STRING)
   private VehicleType vehicleType;
   @Column(name = "occupied", columnDefinition = "boolean default false")

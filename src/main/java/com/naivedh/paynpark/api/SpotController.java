@@ -4,6 +4,7 @@ import com.naivedh.paynpark.enums.VehicleType;
 import com.naivedh.paynpark.model.Spot;
 import com.naivedh.paynpark.service.SpotService;
 import java.util.List;
+import java.util.UUID;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,12 +26,12 @@ public class SpotController {
   }
 
   @GetMapping
-  public ResponseEntity<List<Spot>> getSpotbyGaradeId(@RequestParam Integer garageId){
+  public ResponseEntity<List<Spot>> getSpotbyGaradeId(@RequestParam UUID garageId){
     return ResponseEntity.ok(spotService.getSpotbyGaradeId(garageId));
   }
 
   @GetMapping(value = "/vehicle")
-  public ResponseEntity<List<Spot>> getSpotbyGarageIdAndVehicleType(@RequestParam Integer garageId, VehicleType vehicleType){
+  public ResponseEntity<List<Spot>> getSpotbyGarageIdAndVehicleType(@RequestParam UUID garageId, VehicleType vehicleType){
     return ResponseEntity.ok(spotService.getSpotbyGaradeIdAndVehicleType(garageId, vehicleType));
   }
 

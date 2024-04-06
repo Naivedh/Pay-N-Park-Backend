@@ -5,6 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import java.util.UUID;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
@@ -15,8 +16,8 @@ import lombok.NonNull;
 @NoArgsConstructor
 public class Garage {
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
-  private Integer garageId;
+  @GeneratedValue(strategy = GenerationType.UUID)
+  private UUID garageId;
 
   @NonNull
   private String zipcode;

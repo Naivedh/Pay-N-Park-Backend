@@ -1,2 +1,5 @@
-package com.naivedh.paynpark.enums;public class Role {
+package com.naivedh.paynpark.enums;
+public enum Role {
+  USER,
+  ADMIN
 }

@@ -4,6 +4,7 @@ import com.naivedh.paynpark.model.Reservation;
 import com.naivedh.paynpark.service.ReservationService;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,7 @@ public class ReservationController {
   }
 
   @GetMapping(value="/id")
-  public ResponseEntity<Reservation> getReservation(@RequestParam Integer reservationId){
+  public ResponseEntity<Reservation> getReservation(@RequestParam UUID reservationId){
     Optional<Reservation> reservation = reservationService.getReservationById(reservationId);
     return reservation.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
   }

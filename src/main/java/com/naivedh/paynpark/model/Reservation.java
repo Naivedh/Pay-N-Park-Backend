@@ -7,6 +7,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import java.time.LocalDateTime;
+import java.util.UUID;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
@@ -17,14 +18,14 @@ import lombok.NonNull;
 @NoArgsConstructor
 public class Reservation {
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
-  private Integer reservationId;
+  @GeneratedValue(strategy = GenerationType.UUID)
+  private UUID reservationId;
 
   @NonNull
-  private Integer garageId;
+  private UUID garageId;
 
   @NonNull
-  private Integer spotId;
+  private UUID spotId;
 
   private LocalDateTime startTime;
 

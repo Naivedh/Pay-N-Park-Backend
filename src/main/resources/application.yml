@@ -5,6 +5,16 @@ spring:
         url: jdbc:postgresql://localhost:5432/parking-garage
         username: postgres
         password: 1234
+
     jpa:
         hibernate:
-            ddl-auto: none
+            ddl-auto: create-drop
+            show-sql: true  # Set to false in production
+    database: POSTGRESQL
+    properties:
+        hibernate.connection.provider_class: org.hibernate.connection.provider.C3P0ConnectionProvider  # Consider using an appropriate connection pool
+
+
+token:
+    signing:
+        key: 413F4428472B4B6250655368566D5970337336763979244226452948404D6351

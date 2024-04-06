@@ -1,28 +1,25 @@
-package com.naivedh.paynpark.service;
+package com.naivedh.paynpark.service.Impl;
 
 import com.naivedh.paynpark.model.Reservation;
 import com.naivedh.paynpark.model.Spot;
 import com.naivedh.paynpark.repository.ReservationRepository;
+import com.naivedh.paynpark.service.ReservationService;
+import com.naivedh.paynpark.service.SpotService;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ReservationService {
+@RequiredArgsConstructor
+public class ReservationServiceImpl implements ReservationService {
 
   private final ReservationRepository reservationRepository;
   private final SpotService spotService;
 
-  @Autowired
-  public ReservationService(ReservationRepository reservationRepository,
-      SpotService spotService) {
-    this.reservationRepository = reservationRepository;
-    this.spotService = spotService;
-  }
-
-  public Optional<Reservation> getReservationById(UUID reservationId){
+  @Override
+  public Optional<Reservation> getReservationById(UUID reservationId) {
     return reservationRepository.findById(reservationId);
   }
 
@@ -30,6 +27,7 @@ public class ReservationService {
     return (List<Reservation>) reservationRepository.findAll();
   }
 
+  @Override
   public  Reservation addReservation(Reservation reservation){
     List<Spot> spots = spotService.getSpotbyGaradeIdAndSpotId(reservation.getGarageId(), reservation.getSpotId());
     Spot reserveSpot = spots.get(0);
